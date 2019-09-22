@@ -33,6 +33,26 @@ class LinkedList:
             temp = temp.next
         temp.next = node
     
+    # return length of the linked list using recursion
+    def length(self):
+        return self._len(self.head, 0)
+
+    def _len(self, head, size):
+        if (head is None):
+            return size
+        size = size + 1
+        return self._len(head.next, size)
+    
+    # search an element with given key, iterativ
+    def get(self, data):
+        if (self.head is None):
+            print('the given list is None.')
+            return None
+        temp = self.head
+        while (temp.val != data):
+            temp = temp.next
+        return temp
+
     def printList(self):
         temp = self.head  
         while (temp is not None):
@@ -62,3 +82,6 @@ if __name__=='__main__':
   
     print('Created linked list is:') 
     llist.printList() 
+
+    print('length of created LinkedList: ')
+    print(llist.length())
